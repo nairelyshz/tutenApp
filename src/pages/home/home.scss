@@ -1,0 +1,55 @@
+page-home {
+
+	.datatable-header {
+      background: color($colors,tutenColor);
+      padding: 1em 0 0 1em;
+   }
+
+   .datatable-header-cell {
+      font-size: 1.2em;
+      font-weight: bold;
+      color:white;
+   }
+
+   .datatable-body-cell {
+      font-size: 1.2em;
+      padding: 1em;
+      color:white;
+   }
+
+    .datatable-footer {
+      background: rgba(218, 226, 234,1);
+      padding: 0 1em 0 1em;
+
+      .pager {
+         li {
+      	    padding: 0 1em !important;
+
+      	    a {
+      	       color: rgba(68, 68, 68, 1);
+      	       text-decoration: none;
+      	    }
+      	 }
+      }
+   }
+
+   .datatable-icon-done-all:before {
+      content: ">>";
+   }
+
+   .datatable-icon-left:before {
+      content: "<";
+   }
+
+   .datatable-icon-right:before {
+      content: ">";
+   }
+
+   .datatable-icon-skip:before {
+      content: ">>";
+   }
+
+   .datatable-icon-prev:before {
+      content: "<<";
+   }
+}

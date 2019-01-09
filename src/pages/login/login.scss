@@ -1,0 +1,29 @@
+page-login {
+	$text-input-highlight-color-valid:  color($colors,tutenColor);
+	.button{
+		background-color: color($colors,tutenColor);
+		width: 50%;
+		margin: 0 auto;
+		margin-top: 4%;
+	}
+	.list{
+		width: 70%;
+		margin:0 auto;
+		margin-top: 20%;
+	}
+	.input{
+		color:white;
+		font-size: 16px;
+		background-color:transparent;
+
+	}
+	.row-input{
+		width: 50%;
+		margin: 0 auto;
+		height: 20%;
+		margin-bottom: 10px
+	}
+	.item-input{
+		background-color:transparent;
+	}
+}

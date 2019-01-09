@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar>
+    
+    <ion-title>Tuten</ion-title>
+  
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <div >
+     <ngx-datatable
+       [sortType]="'multi'"
+       [headerHeight]="50"
+       [footerHeight]="50"
+       [rowHeight]="50"
+       [rows]="rows"
+       [columns]="columns"
+       [columnMode]="'force'"
+       [limit]="10" >
+      <ngx-datatable-column name="bookingId" >
+        <ng-template let-sort="sortFn" ngx-datatable-header-template padding>
+        BookingId
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="firstName">
+        <ng-template let-sort="sortFn" ngx-datatable-header-template>
+        Cliente
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="bookingTime">
+        <ng-template let-sort="sortFn" ngx-datatable-header-template>
+        Fecha de Creación
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="bookingAddress">
+        <ng-template let-sort="sortFn" ngx-datatable-header-template>
+        Dirección
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="bookingPrice">
+        <ng-template let-sort="sortFn" ngx-datatable-header-template>
+        Precio
+        </ng-template>
+      </ngx-datatable-column>
+
+        
+     </ngx-datatable>
+  </div>
+
+</ion-content>
