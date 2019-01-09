@@ -19,7 +19,9 @@ Tecnologías usadas
        Cordova Plugins       : not available
 
 Intalación
+
     Para la ejecución del proyeto se debe tener instalado 
+    
       - NPM
       - NodeJS
       - Ionic Framework
