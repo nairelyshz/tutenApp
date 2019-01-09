@@ -29,7 +29,7 @@ Intalación
       
     Luego de las instalación correspondiente, se deben seguir los siguientes pasos:
       1) Hacer clone del proyecto
-          git clone 
+          git clone https://github.com/nairelyshz/tutenApp.git
       2) ejecutar el comando 
           npm install
       3) para visulaizar el proyecto en el navegador 
