@@ -24,7 +24,7 @@
     "@ionic-native/splash-screen": "~4.15.0",
     "@ionic-native/status-bar": "~4.15.0",
     "@ionic/storage": "2.2.0",
-    "@swimlane/ngx-datatable": "^14.0.0",
+    "@swimlane/ngx-datatable": "^11.3.2",
     "ag-grid": "^18.1.2",
     "ag-grid-angular": "^19.1.2",
     "cordova-android": "7.1.1",

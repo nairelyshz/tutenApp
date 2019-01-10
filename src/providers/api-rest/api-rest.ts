@@ -15,29 +15,30 @@ export class ApiRestProvider {
   }
 
 	login(data){
-		//console.log(this.url+encodeURIComponent(data.user))
+		
+		let uri = "https://dev.tuten.cl/TutenREST/rest/user/"+encodeURIComponent(data.email);
 		return new Promise(resolve => {
-		this.http.put("https://dev.tuten.cl/TutenREST/rest/user/testapis@tuten.cl",{},
-			{headers:{'Accept':'application/json',"app":"APP_BCK","password":"1234"}}).subscribe(data => {
-	  		resolve(data);
+		this.http.put(uri,{},
+			{headers:{'Accept':'application/json',"app":"APP_BCK","password":data.password}}).subscribe(data => {
+	  		resolve({status:true,data:data});
 		}, err => {
 			
-	  		resolve({status:false,message:'Error de conexión'});
+	  		resolve({status:false});
 		});
 		});
 	}
 
-	infoUser(){
+	infoUser(data){
 		return new Promise(resolve => {
 		this.http.get("https://dev.tuten.cl:443/TutenREST/rest/user/contacto%40tuten.cl/bookings?current=false",
 			{headers:{'Accept':'application/json',
 			"app":"APP_BCK",
 			"adminemail":"testapis@tuten.cl",
 			"email":"contacto@tuten.cl",
-			"token":"testapis@tuten.cl7pukibien7mjb6ie7q6dphgka5"}}).subscribe(data => {
+			"token":data}}).subscribe(data => {
 
 
-	  		resolve(data);
+	  		resolve({status:true,data:data});
 		}, err => {
 	  		resolve({status:false,message:'Error de conexión'});
 		});

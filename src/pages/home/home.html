@@ -12,6 +12,30 @@
 <ion-content padding>
   
   <div >
+        <ion-list>
+          <ion-row style="background-color: blue;width: 80%;height: 10%">
+            <ion-col col-4>
+              <ion-select style="color:white"[(ngModel)]="optionCheck" name="optionCheck" placeholder="Columna">
+                  <ion-option value="0"></ion-option>
+                  <ion-option value="1">BookingId</ion-option>
+                  <ion-option value="2">BookingPrice</ion-option>
+                </ion-select>
+              </ion-col>
+              <ion-col col-3>
+                  <ion-select style="color:white"[(ngModel)]="modelCheck" name="modelCheck" placeholder="Comparar por">
+                    <ion-option value="0"></ion-option>
+                    <ion-option value="1"><=</ion-option>
+                    <ion-option value="2">>=</ion-option>
+                  </ion-select>
+              </ion-col>
+            <ion-col col-5>
+                 <ion-input color="white" type='number' style='padding:8px;margin:15px auto;width:30%;font-style: bold' placeholder='Search'(keyup)='filter($event)'></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-list>
+        
+     
+
      <ngx-datatable
        [sortType]="'multi'"
        [headerHeight]="50"
@@ -19,7 +43,7 @@
        [rowHeight]="50"
        [rows]="rows"
        [columns]="columns"
-       [columnMode]="'force'"
+       columnMode="force"
        [limit]="10" >
       <ngx-datatable-column name="bookingId" >
         <ng-template let-sort="sortFn" ngx-datatable-header-template padding>
@@ -41,7 +65,7 @@
         Dirección
         </ng-template>
       </ngx-datatable-column>
-      <ngx-datatable-column name="bookingPrice">
+      <ngx-datatable-column name="bookingPrice" >
         <ng-template let-sort="sortFn" ngx-datatable-header-template>
         Precio
         </ng-template>

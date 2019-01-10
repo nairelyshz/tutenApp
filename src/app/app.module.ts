@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -25,7 +26,8 @@ import { HelperProvider } from '../providers/helper/helper';
     IonicModule.forRoot(MyApp),
     HttpModule,
     HttpClientModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    IonicStorageModule.forRoot()
 
   ],
   bootstrap: [IonicApp],

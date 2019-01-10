@@ -11,15 +11,15 @@ import { Storage} from '@ionic/storage';
 @Injectable()
 export class HelperProvider {
 	loading : any;
-
+  token:string;
   constructor(private alertCtrl:AlertController, 
   			private toastCtrl: ToastController,
-  			private loadingCtrl: LoadingController,   
+  			private loadingCtrl: LoadingController,
+        private storage:Storage   
    ) {
-    console.log('Hello HelperProvider Provider');
   }
 
-  presentToast(msj){
+  toast(msj){
 
     let toast = this.toastCtrl.create({
       message: msj,
@@ -34,7 +34,7 @@ export class HelperProvider {
   
   }
 
-  presentLoading(){
+  openLoading(){
   	this.loading = this.loadingCtrl.create({
         content: `Cargando...`,
         cssClass:'loading'
@@ -42,30 +42,22 @@ export class HelperProvider {
 	this.loading.present();
   }
 
-  dismissLoading(){
+ closeLoading(){
   	this.loading.dismiss();
   }
 
-  setLocalStorage(data){
-    
+  async setLocalStorage(data){
+    await this.storage.set('token',data);
   }
 
- getLocalStorage(){
-   // let promise=new Promise((resolve,reject)=>{
-  //     this.localStorage.get('type_tr2').then((type)=>{
-  //       this.type=type;
-  //       console.log("desde  helper",this.type);
-  //       return this.localStorage.get('uid_tr2');
-  //     })
-  //     .then((uid)=>{
-  //       this.userUID=uid;
-  //       return resolve();
-        
-  //       //return this.localStorage.get('phone_tr2');
-  //     })
-      
-  // });
-  //   return promise;
+  async getLocalStorage(){
+      let promise= new Promise((resolve,reject)=>{
+      this.storage.get('token').then((token)=>{ 
+        this.token=token;
+        return resolve(token);
+      });
+    });
+    return promise;
   }
 
 }

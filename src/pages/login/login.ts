@@ -18,6 +18,7 @@ import { HelperProvider } from '../../providers/helper/helper';
 })
 export class LoginPage {
 	loginForm : FormGroup;
+  response:any;
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams,
   	public api: ApiRestProvider,
@@ -26,24 +27,26 @@ export class LoginPage {
     this.createLoginForm();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
 
   createLoginForm(){
   	this.loginForm = this.formBuilder.group({
   		app: ['APP_BCK'],
-  		email:['testapis@tuten.cl'], //: testapis@tuten.cl
-  		password:['1234']
+  		email:[''], //: testapis@tuten.cl
+  		password:['']
   	});
   }
 
   login(){
-    this.helper.presentLoading();
+    this.helper.openLoading();
     this.api.login(this.loginForm.value).then((resp)=>{
-      
-      this.helper.dismissLoading();
-      this.navCtrl.push(HomePage);
+      this.helper.closeLoading();
+      this.response = resp;
+      if(this.response.status){
+        this.helper.setLocalStorage(this.response.data.sessionTokenBck);
+        this.navCtrl.push(HomePage);
+      }else{
+        this.helper.toast("Error! verifique las credenciales ingresadas");
+      }
     });
     
   }

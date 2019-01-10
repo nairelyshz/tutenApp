@@ -52,4 +52,13 @@ page-home {
    .datatable-icon-prev:before {
       content: "<<";
    }
+
+   .input{
+      font-size: 16px;
+      background-color:white;
+
+   }
+   ion-input,.input.text-input{
+          height: 50%;
+   }
 }
